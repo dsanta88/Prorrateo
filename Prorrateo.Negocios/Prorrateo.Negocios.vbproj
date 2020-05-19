@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Prorrateo.Negocios</RootNamespace>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Prorrateo.Datos\Prorrateo.Datos.vbproj" />
+    <ProjectReference Include="..\Prorrateo.Entidades\Prorrateo.Entidades.vbproj" />
+  </ItemGroup>
+
+</Project>
