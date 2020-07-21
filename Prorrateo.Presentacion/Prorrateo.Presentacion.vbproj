@@ -77,11 +77,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDatos.vb">
+    <Compile Include="FrmConfiguraciones.Designer.vb">
+      <DependentUpon>FrmConfiguraciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfiguraciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDatos.Designer.vb">
       <DependentUpon>FrmDatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.vb">
+      <DependentUpon>FrmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,8 +112,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmConfiguraciones.resx">
+      <DependentUpon>FrmConfiguraciones.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDatos.resx">
       <DependentUpon>FrmDatos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -137,6 +154,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_79-excel_social_4241335.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporte.png" />
+    <None Include="Resources\ajustes.png" />
+    <None Include="Resources\ajustes %281%29.png" />
+    <Content Include="Resources\Cerrar.png" />
+    <None Include="Resources\solicit_accept_check_ok_theaction_6340.png" />
+    <None Include="Resources\xmag_search_find_export_locate_5984.png" />
+    <None Include="Resources\searchmagnifierinterfacesymbol1_79893.png" />
+    <None Include="Resources\iconfinder_icon-111-search_314689.png" />
+    <None Include="Resources\Excel2_35735.png" />
+    <Content Include="Resources\Icono Maximizar.png" />
+    <Content Include="Resources\Icono Minimizar.png" />
+    <Content Include="Resources\Icono Restaurar.png" />
+    <Content Include="Resources\Mobile-Menu-Icon.png" />
+    <None Include="Resources\producto.png" />
+    <None Include="Resources\reportes.png" />
+    <None Include="Resources\Zambon_logo1.jpg" />
+    <None Include="Resources\Zambon_logo.jpg" />
+    <None Include="Resources\zambon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
