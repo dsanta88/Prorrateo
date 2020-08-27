@@ -1,6 +1,8 @@
 ﻿
 'Imports Microsoft.Office.Interop.Excel
 
+Imports OfficeOpenXml
+
 Public Class FrmDatos
     Dim objNegocios As New clsNegocios
     Private Sub FrmDatos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -19,9 +21,12 @@ Public Class FrmDatos
 
     Private Sub btnEjecutar_Click(sender As Object, e As EventArgs) Handles btnEjecutar.Click
         lblMensaje.Visible = True
-        lblMensaje.Text = "!Procesando infomación, Por favor espere."
+        lblMensaje.Text = "! Procesando infomación, Por favor espere."
         objNegocios.EjecutarProrrateo()
-        lblMensaje.Text = "!Proceso de prorrateo finalizado."
+        lblMensaje.Text = "! Proceso de prorrateo finalizado."
+
+        Dim dtLog As DataTable = objNegocios.LogEventosObtener()
+        dtgLog.DataSource = dtLog
     End Sub
 
     Private Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
@@ -53,82 +58,66 @@ Public Class FrmDatos
 
     Function ExportarExcel(ByVal ElGrid As DataGridView) As Boolean
 
-        'Creamos las variables
+        Dim strLinea As String = ""
+        Dim gasto = txtGasto.Text
+        Dim iva = txtIva.Text
+        Dim periodos = ""
+        For x = 0 To lstPeriodos.SelectedItems.Count() - 1
+            If lstPeriodos.SelectedItems.Count() > 0 Then
 
-        Dim exApp As New Microsoft.Office.Interop.Excel.Application
+                periodos += lstPeriodos.SelectedItems(x) + ","
 
-        Dim exLibro As Microsoft.Office.Interop.Excel.Workbook
-
-        Dim exHoja As Microsoft.Office.Interop.Excel.Worksheet
+            End If
+        Next x
 
         Try
+            Dim dt As DataTable = objNegocios.CargarDatos(gasto, iva, periodos)
 
-            'Añadimos el Libro al programa, y la hoja al libro
-
-            exLibro = exApp.Workbooks.Add
-
-            exHoja = exLibro.Worksheets.Add()
-
-            ' ¿Cuantas columnas y cuantas filas?
-
-            Dim NCol As Integer = ElGrid.ColumnCount
-
-            Dim NRow As Integer = ElGrid.RowCount
-
-            'Aqui recorremos todas las filas, y por cada fila todas las columnas
-
-            'y vamos escribiendo.
-
-            For i As Integer = 1 To NCol
-
-                exHoja.Cells.Item(1, i) = ElGrid.Columns(i - 1).Name.ToString
-
+            For Each columna As DataColumn In dt.Columns
+                strLinea &= columna.ColumnName.ToString & ";"
             Next
 
-            For Fila As Integer = 0 To NRow - 1
+            strLinea &= vbNewLine
+            For Each Registro As DataRow In dt.Rows
 
-                For Col As Integer = 0 To NCol - 1
-
-                    exHoja.Cells.Item(Fila + 2, Col + 1) = ElGrid.Item(Col, Fila).Value
-
-                Next
-
+                'strLinea &= Registro.Item("f350_rowid").ToString & ";"
+                strLinea &= Registro.Item("TIPO_DOCUMENTO").ToString & ";"
+                strLinea &= Registro.Item("DOCTO").ToString & ";"
+                strLinea &= Registro.Item("CUENTA").ToString & ";"
+                strLinea &= Registro.Item("TERCERO_DOCTO").ToString & ";"
+                strLinea &= Registro.Item("RAZON_SOCIAL_DOCTO").ToString & ";"
+                strLinea &= Registro.Item("CENTRO_COSTOS").ToString & ";"
+                strLinea &= Registro.Item("DEBITOS").ToString & ";"
+                strLinea &= Registro.Item("UNIDAD_NEGOCIO").ToString & ";"
+                strLinea &= Registro.Item("CONS_24082005").ToString & ";"
+                strLinea &= Registro.Item("CONS_24082010").ToString & ";"
+                strLinea &= Registro.Item("CONS_24081025").ToString & ";"
+                strLinea &= Registro.Item("TOTAL_24").ToString & ";"
+                strLinea &= Registro.Item("CONS_5_7").ToString & ";"
+                strLinea &= Registro.Item("PORC_PART").ToString & ";"
+                strLinea &= Registro.Item("IVA_X_CTA").ToString & ";"
+                strLinea &= Registro.Item("GASTO").ToString & ";"
+                strLinea &= Registro.Item("IVA").ToString & ";"
+                strLinea &= vbNewLine
             Next
 
-            'Titulo en negrita, Alineado al centro y que el tamaño de la columna
+            Dim ruta As String = "C:\ExcelProrrateo\" & Date.Now.Day.ToString & "-" & Date.Now.Month.ToString & "-" & Date.Now.Year.ToString & "-Prorrateo.xls"
 
-            'se ajuste al texto
+            'My.Computer.FileSystem.WriteAllText("C:\ExcelProrrateo\archivo.xls", strLinea, True)
+            My.Computer.FileSystem.WriteAllText(ruta, strLinea, True)
 
-            exHoja.Rows.Item(1).Font.Bold = 1
-
-            exHoja.Rows.Item(1).HorizontalAlignment = 3
-
-            exHoja.Columns.AutoFit()
-
-            'Aplicación visible
-
-            exApp.Application.Visible = True
-
-            exHoja = Nothing
-
-            exLibro = Nothing
-
-            exApp = Nothing
-
+            MessageBox.Show("El arcvhivo se genero de forma correcta en la siguiente ruta: " & ruta)
         Catch ex As Exception
 
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al exportar a Excel")
-
-            Return False
+            Throw ex
 
         End Try
 
-        Return True
 
     End Function
 
     Private Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
-        lblMensaje.Text = "!Exportando archivo, Por favor espere."
+        lblMensaje.Text = "! Exportando archivo, Por favor espere."
         ExportarExcel(dtgDatos)
         lblMensaje.Text = ""
     End Sub

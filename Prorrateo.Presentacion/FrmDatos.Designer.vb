@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmDatos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmDatos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -197,7 +197,7 @@ Partial Class FrmDatos
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.dtgLog)
         Me.SplitContainer1.Size = New System.Drawing.Size(1053, 105)
-        Me.SplitContainer1.SplitterDistance = 55
+        Me.SplitContainer1.SplitterDistance = 44
         Me.SplitContainer1.TabIndex = 1
         '
         'dtgDatos
@@ -208,7 +208,7 @@ Partial Class FrmDatos
         Me.dtgDatos.Name = "dtgDatos"
         Me.dtgDatos.RowHeadersWidth = 51
         Me.dtgDatos.RowTemplate.Height = 24
-        Me.dtgDatos.Size = New System.Drawing.Size(1053, 55)
+        Me.dtgDatos.Size = New System.Drawing.Size(1053, 44)
         Me.dtgDatos.TabIndex = 0
         '
         'dtgLog
@@ -219,7 +219,7 @@ Partial Class FrmDatos
         Me.dtgLog.Name = "dtgLog"
         Me.dtgLog.RowHeadersWidth = 51
         Me.dtgLog.RowTemplate.Height = 24
-        Me.dtgLog.Size = New System.Drawing.Size(1053, 46)
+        Me.dtgLog.Size = New System.Drawing.Size(1053, 57)
         Me.dtgLog.TabIndex = 0
         '
         'Button2
@@ -229,7 +229,7 @@ Partial Class FrmDatos
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(0, 0)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(1053, 31)
+        Me.Button2.Size = New System.Drawing.Size(1053, 28)
         Me.Button2.TabIndex = 1
         Me.Button2.Text = "Log "
         Me.Button2.UseVisualStyleBackColor = False

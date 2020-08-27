@@ -118,6 +118,8 @@ Public Class clsDatos
         Return ds
 
     End Function
+
+
 #Region "EQUIVALENCIAS"
 
     Public Function EquivalenciasCuentasObtener(id) As DataTable
@@ -170,17 +172,15 @@ Public Class clsDatos
 
     Public Function EquivalenciasCuentasEditar(id, auxiliar, contrapartida) As Boolean
 
-        Dim sqlConexion As New SqlConnection()
         Dim sqlComando As SqlCommand = New SqlCommand("sp_equivalencia_cuenta_editar", conexion)
         Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
         Try
-            sqlComando.Connection = sqlConexion
             sqlComando.CommandType = CommandType.StoredProcedure
             sqlComando.Parameters.AddWithValue("@Id", id)
             sqlComando.Parameters.AddWithValue("@Auxiliar", auxiliar)
             sqlComando.Parameters.AddWithValue("@Contrapartida", contrapartida)
             sqlAdaptador.SelectCommand = sqlComando
-            sqlConexion.Open()
+            sqlComando.Connection.Open()
             sqlComando.ExecuteNonQuery()
         Catch ex As Exception
             LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
@@ -194,15 +194,13 @@ Public Class clsDatos
 
     Public Function EquivalenciasCuentasEliminar(id) As Boolean
 
-        Dim sqlConexion As New SqlConnection()
         Dim sqlComando As SqlCommand = New SqlCommand("sp_equivalencia_cuenta_eliminar", conexion)
         Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
         Try
-            sqlComando.Connection = sqlConexion
             sqlComando.CommandType = CommandType.StoredProcedure
             sqlComando.Parameters.AddWithValue("@Id", id)
             sqlAdaptador.SelectCommand = sqlComando
-            sqlConexion.Open()
+            sqlComando.Connection.Open()
             sqlComando.ExecuteNonQuery()
         Catch ex As Exception
             LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
@@ -215,6 +213,96 @@ Public Class clsDatos
     End Function
 #End Region
 
+
+#Region "TIPODATO"
+
+    Public Function TipoDatosObtener(id) As DataTable
+        Dim sqlConexion As New SqlConnection(conexion.ConnectionString)
+        Dim sqlComando As SqlCommand = New SqlCommand
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Dim dt As New DataTable
+
+        Try
+
+            sqlComando.Connection = sqlConexion
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.CommandText = "sp_tipos_documentos_obtener"
+            sqlComando.Parameters.AddWithValue("@Id", id)
+            sqlAdaptador.SelectCommand = sqlComando
+
+            sqlAdaptador.Fill(dt)
+
+        Catch ex As Exception
+            LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
+            Throw ex
+        Finally
+            sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+
+        Return dt
+    End Function
+
+    Public Function TipoDatosInsert(tipoDato) As Boolean
+
+        Dim sqlComando As SqlCommand = New SqlCommand("sp_tipos_documentos_insertar", conexion)
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Try
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.Parameters.AddWithValue("@Tipo_Docto", tipoDato)
+            sqlAdaptador.SelectCommand = sqlComando
+            sqlComando.Connection.Open()
+            sqlComando.ExecuteNonQuery()
+        Catch ex As Exception
+            LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
+            Return False
+        Finally
+            sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+        Return True
+    End Function
+
+    Public Function TipoDatosEditar(id, tipoDato) As Boolean
+        Dim sqlComando As SqlCommand = New SqlCommand("sp_tipos_documento_actualizar", conexion)
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Try
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.Parameters.AddWithValue("@Id", id)
+            sqlComando.Parameters.AddWithValue("@Tipo_Docto", tipoDato)
+            sqlAdaptador.SelectCommand = sqlComando
+            sqlComando.Connection.Open()
+            sqlComando.ExecuteNonQuery()
+        Catch ex As Exception
+            LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
+            Return False
+        Finally
+            'sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+        Return True
+    End Function
+
+    Public Function TipoDatosEliminar(id) As Boolean
+
+        Dim sqlComando As SqlCommand = New SqlCommand("sp_tipos_documento_eliminar", conexion)
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Try
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.Parameters.AddWithValue("@Id", id)
+            sqlAdaptador.SelectCommand = sqlComando
+            sqlComando.Connection.Open()
+            sqlComando.ExecuteNonQuery()
+        Catch ex As Exception
+            LogEventosInsertar("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
+            Return False
+        Finally
+            sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+        Return True
+    End Function
+#End Region
 
     Public Function LogEventosInsertar(compania, centroOper, TipoDto, consecutivo, fechaInicio, fechaFin, numeroLinea, tipoRegistro, subTipoRegistro, version, nivel, valor, mensaje, fuente, seguimiento, estado) As String
         Dim sqlComando As SqlCommand = New SqlCommand("sp_log_eventos_insertar", conexion)

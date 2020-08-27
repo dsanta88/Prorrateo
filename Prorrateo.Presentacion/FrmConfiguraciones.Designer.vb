@@ -29,21 +29,17 @@ Partial Class FrmConfiguraciones
         Me.txtAuxiliar = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtContrapartida = New System.Windows.Forms.TextBox()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnEliminarEquiv = New System.Windows.Forms.Button()
-        Me.btnEditarEquiv = New System.Windows.Forms.Button()
         Me.btnGuardarEquiv = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.dtgTipoDatos = New System.Windows.Forms.DataGridView()
+        Me.txtTipodato = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnGuardarTiipoDato = New System.Windows.Forms.Button()
+        Me.btnNuevoTipoDato = New System.Windows.Forms.Button()
+        Me.btnEliminarTipoDato = New System.Windows.Forms.Button()
         CType(Me.dtgEquivalencias, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgTipoDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtgEquivalencias
@@ -53,7 +49,8 @@ Partial Class FrmConfiguraciones
         Me.dtgEquivalencias.Name = "dtgEquivalencias"
         Me.dtgEquivalencias.RowHeadersWidth = 51
         Me.dtgEquivalencias.RowTemplate.Height = 24
-        Me.dtgEquivalencias.Size = New System.Drawing.Size(605, 223)
+        Me.dtgEquivalencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgEquivalencias.Size = New System.Drawing.Size(605, 273)
         Me.dtgEquivalencias.TabIndex = 0
         '
         'Button2
@@ -64,7 +61,7 @@ Partial Class FrmConfiguraciones
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(817, 31)
         Me.Button2.TabIndex = 16
-        Me.Button2.Text = "Documentos"
+        Me.Button2.Text = "Tipos Documentos"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
@@ -112,26 +109,13 @@ Partial Class FrmConfiguraciones
         Me.txtContrapartida.Size = New System.Drawing.Size(202, 22)
         Me.txtContrapartida.TabIndex = 21
         '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.PaleVioletRed
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.cruz_entrecruzada
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(617, 210)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(202, 50)
-        Me.Button5.TabIndex = 23
-        Me.Button5.Text = "Cancelar"
-        Me.Button5.UseVisualStyleBackColor = False
-        '
         'btnNuevo
         '
         Me.btnNuevo.BackColor = System.Drawing.Color.MediumAquamarine
         Me.btnNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevo.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.anadir
         Me.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNuevo.Location = New System.Drawing.Point(2, 266)
+        Me.btnNuevo.Location = New System.Drawing.Point(617, 260)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(202, 50)
         Me.btnNuevo.TabIndex = 22
@@ -144,25 +128,12 @@ Partial Class FrmConfiguraciones
         Me.btnEliminarEquiv.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarEquiv.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.eliminar
         Me.btnEliminarEquiv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEliminarEquiv.Location = New System.Drawing.Point(418, 266)
+        Me.btnEliminarEquiv.Location = New System.Drawing.Point(617, 204)
         Me.btnEliminarEquiv.Name = "btnEliminarEquiv"
-        Me.btnEliminarEquiv.Size = New System.Drawing.Size(189, 50)
+        Me.btnEliminarEquiv.Size = New System.Drawing.Size(202, 50)
         Me.btnEliminarEquiv.TabIndex = 14
         Me.btnEliminarEquiv.Text = "Eliminar"
         Me.btnEliminarEquiv.UseVisualStyleBackColor = False
-        '
-        'btnEditarEquiv
-        '
-        Me.btnEditarEquiv.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.btnEditarEquiv.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEditarEquiv.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.lapiz
-        Me.btnEditarEquiv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEditarEquiv.Location = New System.Drawing.Point(210, 266)
-        Me.btnEditarEquiv.Name = "btnEditarEquiv"
-        Me.btnEditarEquiv.Size = New System.Drawing.Size(202, 50)
-        Me.btnEditarEquiv.TabIndex = 13
-        Me.btnEditarEquiv.Text = "Editar"
-        Me.btnEditarEquiv.UseVisualStyleBackColor = False
         '
         'btnGuardarEquiv
         '
@@ -170,29 +141,30 @@ Partial Class FrmConfiguraciones
         Me.btnGuardarEquiv.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardarEquiv.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.salvar
         Me.btnGuardarEquiv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnGuardarEquiv.Location = New System.Drawing.Point(617, 154)
+        Me.btnGuardarEquiv.Location = New System.Drawing.Point(617, 148)
         Me.btnGuardarEquiv.Name = "btnGuardarEquiv"
         Me.btnGuardarEquiv.Size = New System.Drawing.Size(202, 50)
         Me.btnGuardarEquiv.TabIndex = 12
         Me.btnGuardarEquiv.Text = "Guardar"
         Me.btnGuardarEquiv.UseVisualStyleBackColor = False
         '
-        'DataGridView1
+        'dtgTipoDatos
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(2, 439)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(605, 223)
-        Me.DataGridView1.TabIndex = 24
+        Me.dtgTipoDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtgTipoDatos.Location = New System.Drawing.Point(2, 439)
+        Me.dtgTipoDatos.Name = "dtgTipoDatos"
+        Me.dtgTipoDatos.RowHeadersWidth = 51
+        Me.dtgTipoDatos.RowTemplate.Height = 24
+        Me.dtgTipoDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgTipoDatos.Size = New System.Drawing.Size(605, 223)
+        Me.dtgTipoDatos.TabIndex = 24
         '
-        'TextBox1
+        'txtTipodato
         '
-        Me.TextBox1.Location = New System.Drawing.Point(613, 465)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(190, 22)
-        Me.TextBox1.TabIndex = 26
+        Me.txtTipodato.Location = New System.Drawing.Point(613, 465)
+        Me.txtTipodato.Name = "txtTipodato"
+        Me.txtTipodato.Size = New System.Drawing.Size(190, 22)
+        Me.txtTipodato.TabIndex = 26
         '
         'Label3
         '
@@ -204,85 +176,56 @@ Partial Class FrmConfiguraciones
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "Tipo Documento"
         '
-        'Button3
+        'btnGuardarTiipoDato
         '
-        Me.Button3.BackColor = System.Drawing.Color.PaleVioletRed
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.cruz_entrecruzada
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(617, 560)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(202, 50)
-        Me.Button3.TabIndex = 28
-        Me.Button3.Text = "Cancelar"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnGuardarTiipoDato.BackColor = System.Drawing.Color.Green
+        Me.btnGuardarTiipoDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardarTiipoDato.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.salvar
+        Me.btnGuardarTiipoDato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnGuardarTiipoDato.Location = New System.Drawing.Point(617, 504)
+        Me.btnGuardarTiipoDato.Name = "btnGuardarTiipoDato"
+        Me.btnGuardarTiipoDato.Size = New System.Drawing.Size(202, 50)
+        Me.btnGuardarTiipoDato.TabIndex = 27
+        Me.btnGuardarTiipoDato.Text = "Guardar"
+        Me.btnGuardarTiipoDato.UseVisualStyleBackColor = False
         '
-        'Button4
+        'btnNuevoTipoDato
         '
-        Me.Button4.BackColor = System.Drawing.Color.Green
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.salvar
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(617, 504)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(202, 50)
-        Me.Button4.TabIndex = 27
-        Me.Button4.Text = "Guardar"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.btnNuevoTipoDato.BackColor = System.Drawing.Color.MediumAquamarine
+        Me.btnNuevoTipoDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNuevoTipoDato.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.anadir
+        Me.btnNuevoTipoDato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnNuevoTipoDato.Location = New System.Drawing.Point(617, 616)
+        Me.btnNuevoTipoDato.Name = "btnNuevoTipoDato"
+        Me.btnNuevoTipoDato.Size = New System.Drawing.Size(202, 50)
+        Me.btnNuevoTipoDato.TabIndex = 31
+        Me.btnNuevoTipoDato.Text = "Nuevo"
+        Me.btnNuevoTipoDato.UseVisualStyleBackColor = False
         '
-        'Button6
+        'btnEliminarTipoDato
         '
-        Me.Button6.BackColor = System.Drawing.Color.MediumAquamarine
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.anadir
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button6.Location = New System.Drawing.Point(2, 668)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(202, 50)
-        Me.Button6.TabIndex = 31
-        Me.Button6.Text = "Nuevo"
-        Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Button7
-        '
-        Me.Button7.BackColor = System.Drawing.Color.Crimson
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.eliminar
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(418, 668)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(189, 50)
-        Me.Button7.TabIndex = 30
-        Me.Button7.Text = "Eliminar"
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.CornflowerBlue
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.lapiz
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button8.Location = New System.Drawing.Point(210, 668)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(202, 50)
-        Me.Button8.TabIndex = 29
-        Me.Button8.Text = "Editar"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.btnEliminarTipoDato.BackColor = System.Drawing.Color.Crimson
+        Me.btnEliminarTipoDato.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarTipoDato.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.eliminar
+        Me.btnEliminarTipoDato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEliminarTipoDato.Location = New System.Drawing.Point(617, 560)
+        Me.btnEliminarTipoDato.Name = "btnEliminarTipoDato"
+        Me.btnEliminarTipoDato.Size = New System.Drawing.Size(202, 50)
+        Me.btnEliminarTipoDato.TabIndex = 30
+        Me.btnEliminarTipoDato.Text = "Eliminar"
+        Me.btnEliminarTipoDato.UseVisualStyleBackColor = False
         '
         'FrmConfiguraciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(864, 751)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.btnNuevoTipoDato)
+        Me.Controls.Add(Me.btnEliminarTipoDato)
+        Me.Controls.Add(Me.btnGuardarTiipoDato)
+        Me.Controls.Add(Me.txtTipodato)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.dtgTipoDatos)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.txtContrapartida)
         Me.Controls.Add(Me.Label2)
@@ -291,13 +234,12 @@ Partial Class FrmConfiguraciones
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btnEliminarEquiv)
-        Me.Controls.Add(Me.btnEditarEquiv)
         Me.Controls.Add(Me.btnGuardarEquiv)
         Me.Controls.Add(Me.dtgEquivalencias)
         Me.Name = "FrmConfiguraciones"
         Me.Text = "FrmConfiguraciones"
         CType(Me.dtgEquivalencias, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgTipoDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -305,7 +247,6 @@ Partial Class FrmConfiguraciones
 
     Friend WithEvents dtgEquivalencias As DataGridView
     Friend WithEvents btnEliminarEquiv As Button
-    Friend WithEvents btnEditarEquiv As Button
     Friend WithEvents btnGuardarEquiv As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
@@ -314,13 +255,10 @@ Partial Class FrmConfiguraciones
     Friend WithEvents Label2 As Label
     Friend WithEvents txtContrapartida As TextBox
     Friend WithEvents btnNuevo As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents dtgTipoDatos As DataGridView
+    Friend WithEvents txtTipodato As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
+    Friend WithEvents btnGuardarTiipoDato As Button
+    Friend WithEvents btnNuevoTipoDato As Button
+    Friend WithEvents btnEliminarTipoDato As Button
 End Class

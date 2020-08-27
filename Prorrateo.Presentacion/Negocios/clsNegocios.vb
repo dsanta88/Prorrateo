@@ -30,6 +30,29 @@ Public Class clsNegocios
         Return objDatos.EquivalenciasCuentasEliminar(id)
     End Function
 
+
+
+
+    Public Function TipoDatosObtener(id) As DataTable
+        Return objDatos.TipoDatosObtener(id)
+    End Function
+
+    Public Function TipoDatosInsert(tipoDato) As Boolean
+        Return objDatos.TipoDatosInsert(tipoDato)
+    End Function
+
+    Public Function TipoDatosEditar(id, tipoDato) As Boolean
+        Return objDatos.TipoDatosEditar(id, tipoDato)
+    End Function
+
+
+    Public Function TipoDatosEliminar(id) As Boolean
+        Return objDatos.TipoDatosEliminar(id)
+    End Function
+
+
+
+
     Public Function LogEventosObtener() As DataTable
         Return objDatos.LogEventosObtener()
     End Function
