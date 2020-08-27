@@ -44,8 +44,61 @@ Public Class clsDatos
         Return dt
     End Function
 
+    Public Function sp_documentos_contables() As DataSet
 
-#Region "EQUIVALENCIAS OBTENER"
+        Dim sqlConexion As New SqlConnection(conexion.ConnectionString)
+        Dim sqlComando As SqlCommand = New SqlCommand
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Dim ds As New DataSet
+
+        Try
+
+            sqlComando.Connection = sqlConexion
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.CommandText = "sp_Docto_Contable"
+            sqlAdaptador.SelectCommand = sqlComando
+
+            sqlAdaptador.Fill(ds)
+
+        Catch ex As Exception
+            Throw ex
+        Finally
+            sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+
+        Return ds
+
+    End Function
+
+
+    Public Function sp_movimientos_contables() As DataSet
+
+        Dim sqlConexion As New SqlConnection(conexion.ConnectionString)
+        Dim sqlComando As SqlCommand = New SqlCommand
+        Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
+        Dim ds As New DataSet
+
+        Try
+
+            sqlComando.Connection = sqlConexion
+            sqlComando.CommandType = CommandType.StoredProcedure
+            sqlComando.CommandText = "sp_Movto_Contable"
+            sqlAdaptador.SelectCommand = sqlComando
+
+            sqlAdaptador.Fill(ds)
+
+        Catch ex As Exception
+            Throw ex
+        Finally
+            sqlComando.Parameters.Clear()
+            sqlComando.Connection.Close()
+        End Try
+
+        Return ds
+
+    End Function
+#Region "EQUIVALENCIAS"
 
     Public Function EquivalenciasCuentasObtener(id) As DataTable
         Dim cmd As SqlCommand = New SqlCommand("sp_equivalencia_cuenta_obtener", conexion)
@@ -65,20 +118,17 @@ Public Class clsDatos
         Return dt
     End Function
 
-
-
-    Public Function EquivalenciasCuentasInser(auxiliar, contrapartida) As Boolean
-
-        Dim sqlConexion As New SqlConnection()
+    Public Function EquivalenciasCuentasInsert(auxiliar, contrapartida) As Boolean
+        'Dim sqlConexion As New SqlConnection()
         Dim sqlComando As SqlCommand = New SqlCommand("sp_equivalencia_cuenta_insertar", conexion)
         Dim sqlAdaptador As SqlDataAdapter = New SqlDataAdapter
         Try
-            sqlComando.Connection = sqlConexion
+            'sqlComando.Connection = sqlConexion
             sqlComando.CommandType = CommandType.StoredProcedure
             sqlComando.Parameters.AddWithValue("@Auxiliar", auxiliar)
             sqlComando.Parameters.AddWithValue("@Contrapartida", contrapartida)
             sqlAdaptador.SelectCommand = sqlComando
-            sqlConexion.Open()
+            sqlComando.Connection.Open()
             sqlComando.ExecuteNonQuery()
         Catch ex As Exception
             'sp_guardar_log_eventos("", "", "", "", DateTime.Now, DateTime.Now, "", "", "", "", "", "", ex.Message, ex.Source, ex.StackTrace, False)
@@ -89,7 +139,6 @@ Public Class clsDatos
         End Try
         Return True
     End Function
-
 
     Public Function EquivalenciasCuentasEditar(id, auxiliar, contrapartida) As Boolean
 

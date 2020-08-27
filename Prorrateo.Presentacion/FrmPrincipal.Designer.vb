@@ -24,18 +24,18 @@ Partial Class FrmPrincipal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PanelCabecera = New System.Windows.Forms.Panel()
-        Me.PanelContenido = New System.Windows.Forms.Panel()
-        Me.PanelMenu = New System.Windows.Forms.Panel()
-        Me.tmOcultar = New System.Windows.Forms.Timer(Me.components)
-        Me.tmMostrar = New System.Windows.Forms.Timer(Me.components)
-        Me.btnAbrirConfiguraciones = New System.Windows.Forms.Button()
-        Me.btnDatos = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.btnMenu = New System.Windows.Forms.PictureBox()
         Me.btnRestaurar = New System.Windows.Forms.Button()
         Me.btnMaximizar = New System.Windows.Forms.Button()
         Me.btnMinimizar = New System.Windows.Forms.Button()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.PanelContenido = New System.Windows.Forms.Panel()
+        Me.PanelMenu = New System.Windows.Forms.Panel()
+        Me.btnAbrirConfiguraciones = New System.Windows.Forms.Button()
+        Me.btnDatos = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnMenu = New System.Windows.Forms.PictureBox()
+        Me.tmOcultar = New System.Windows.Forms.Timer(Me.components)
+        Me.tmMostrar = New System.Windows.Forms.Timer(Me.components)
         Me.PanelCabecera.SuspendLayout()
         Me.PanelMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,86 +55,6 @@ Partial Class FrmPrincipal
         Me.PanelCabecera.Name = "PanelCabecera"
         Me.PanelCabecera.Size = New System.Drawing.Size(987, 40)
         Me.PanelCabecera.TabIndex = 0
-        '
-        'PanelContenido
-        '
-        Me.PanelContenido.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelContenido.Location = New System.Drawing.Point(293, 40)
-        Me.PanelContenido.Name = "PanelContenido"
-        Me.PanelContenido.Size = New System.Drawing.Size(694, 381)
-        Me.PanelContenido.TabIndex = 2
-        '
-        'PanelMenu
-        '
-        Me.PanelMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(59, Byte), Integer))
-        Me.PanelMenu.Controls.Add(Me.btnAbrirConfiguraciones)
-        Me.PanelMenu.Controls.Add(Me.btnDatos)
-        Me.PanelMenu.Controls.Add(Me.PictureBox1)
-        Me.PanelMenu.Controls.Add(Me.btnMenu)
-        Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PanelMenu.Location = New System.Drawing.Point(0, 40)
-        Me.PanelMenu.Name = "PanelMenu"
-        Me.PanelMenu.Size = New System.Drawing.Size(293, 381)
-        Me.PanelMenu.TabIndex = 1
-        '
-        'tmOcultar
-        '
-        Me.tmOcultar.Interval = 15
-        '
-        'tmMostrar
-        '
-        Me.tmMostrar.Interval = 15
-        '
-        'btnAbrirConfiguraciones
-        '
-        Me.btnAbrirConfiguraciones.FlatAppearance.BorderSize = 0
-        Me.btnAbrirConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAbrirConfiguraciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAbrirConfiguraciones.ForeColor = System.Drawing.Color.White
-        Me.btnAbrirConfiguraciones.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.ajustes__1_
-        Me.btnAbrirConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAbrirConfiguraciones.Location = New System.Drawing.Point(3, 187)
-        Me.btnAbrirConfiguraciones.Name = "btnAbrirConfiguraciones"
-        Me.btnAbrirConfiguraciones.Size = New System.Drawing.Size(290, 50)
-        Me.btnAbrirConfiguraciones.TabIndex = 3
-        Me.btnAbrirConfiguraciones.Text = "Configuraciones"
-        Me.btnAbrirConfiguraciones.UseVisualStyleBackColor = True
-        '
-        'btnDatos
-        '
-        Me.btnDatos.FlatAppearance.BorderSize = 0
-        Me.btnDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDatos.ForeColor = System.Drawing.Color.White
-        Me.btnDatos.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.reporte
-        Me.btnDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnDatos.Location = New System.Drawing.Point(0, 131)
-        Me.btnDatos.Name = "btnDatos"
-        Me.btnDatos.Size = New System.Drawing.Size(293, 50)
-        Me.btnDatos.TabIndex = 2
-        Me.btnDatos.Text = "Datos"
-        Me.btnDatos.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.Zambon_logo1
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 53)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(290, 66)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'btnMenu
-        '
-        Me.btnMenu.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMenu.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.Mobile_Menu_Icon
-        Me.btnMenu.Location = New System.Drawing.Point(246, 6)
-        Me.btnMenu.Name = "btnMenu"
-        Me.btnMenu.Size = New System.Drawing.Size(41, 41)
-        Me.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnMenu.TabIndex = 0
-        Me.btnMenu.TabStop = False
         '
         'btnRestaurar
         '
@@ -196,6 +116,86 @@ Partial Class FrmPrincipal
         Me.btnCerrar.Size = New System.Drawing.Size(40, 40)
         Me.btnCerrar.TabIndex = 0
         Me.btnCerrar.UseVisualStyleBackColor = True
+        '
+        'PanelContenido
+        '
+        Me.PanelContenido.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelContenido.Location = New System.Drawing.Point(293, 40)
+        Me.PanelContenido.Name = "PanelContenido"
+        Me.PanelContenido.Size = New System.Drawing.Size(694, 381)
+        Me.PanelContenido.TabIndex = 2
+        '
+        'PanelMenu
+        '
+        Me.PanelMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(59, Byte), Integer))
+        Me.PanelMenu.Controls.Add(Me.btnAbrirConfiguraciones)
+        Me.PanelMenu.Controls.Add(Me.btnDatos)
+        Me.PanelMenu.Controls.Add(Me.PictureBox1)
+        Me.PanelMenu.Controls.Add(Me.btnMenu)
+        Me.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelMenu.Location = New System.Drawing.Point(0, 40)
+        Me.PanelMenu.Name = "PanelMenu"
+        Me.PanelMenu.Size = New System.Drawing.Size(293, 381)
+        Me.PanelMenu.TabIndex = 1
+        '
+        'btnAbrirConfiguraciones
+        '
+        Me.btnAbrirConfiguraciones.FlatAppearance.BorderSize = 0
+        Me.btnAbrirConfiguraciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAbrirConfiguraciones.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAbrirConfiguraciones.ForeColor = System.Drawing.Color.White
+        Me.btnAbrirConfiguraciones.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.ajustes__1_
+        Me.btnAbrirConfiguraciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAbrirConfiguraciones.Location = New System.Drawing.Point(3, 187)
+        Me.btnAbrirConfiguraciones.Name = "btnAbrirConfiguraciones"
+        Me.btnAbrirConfiguraciones.Size = New System.Drawing.Size(290, 50)
+        Me.btnAbrirConfiguraciones.TabIndex = 3
+        Me.btnAbrirConfiguraciones.Text = "Configuraciones"
+        Me.btnAbrirConfiguraciones.UseVisualStyleBackColor = True
+        '
+        'btnDatos
+        '
+        Me.btnDatos.FlatAppearance.BorderSize = 0
+        Me.btnDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDatos.ForeColor = System.Drawing.Color.White
+        Me.btnDatos.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.reporte
+        Me.btnDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDatos.Location = New System.Drawing.Point(0, 131)
+        Me.btnDatos.Name = "btnDatos"
+        Me.btnDatos.Size = New System.Drawing.Size(293, 50)
+        Me.btnDatos.TabIndex = 2
+        Me.btnDatos.Text = "Datos"
+        Me.btnDatos.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.Zambon_logo1
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 53)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(290, 66)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'btnMenu
+        '
+        Me.btnMenu.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMenu.Image = Global.Prorrateo.Presentacion.My.Resources.Resources.Mobile_Menu_Icon
+        Me.btnMenu.Location = New System.Drawing.Point(246, 6)
+        Me.btnMenu.Name = "btnMenu"
+        Me.btnMenu.Size = New System.Drawing.Size(41, 41)
+        Me.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMenu.TabIndex = 0
+        Me.btnMenu.TabStop = False
+        '
+        'tmOcultar
+        '
+        Me.tmOcultar.Interval = 15
+        '
+        'tmMostrar
+        '
+        Me.tmMostrar.Interval = 15
         '
         'FrmPrincipal
         '
