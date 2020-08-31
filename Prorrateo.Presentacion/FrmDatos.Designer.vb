@@ -196,8 +196,8 @@ Partial Class FrmDatos
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.dtgLog)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1053, 105)
-        Me.SplitContainer1.SplitterDistance = 44
+        Me.SplitContainer1.Size = New System.Drawing.Size(1053, 285)
+        Me.SplitContainer1.SplitterDistance = 119
         Me.SplitContainer1.TabIndex = 1
         '
         'dtgDatos
@@ -208,37 +208,36 @@ Partial Class FrmDatos
         Me.dtgDatos.Name = "dtgDatos"
         Me.dtgDatos.RowHeadersWidth = 51
         Me.dtgDatos.RowTemplate.Height = 24
-        Me.dtgDatos.Size = New System.Drawing.Size(1053, 44)
+        Me.dtgDatos.Size = New System.Drawing.Size(1053, 119)
         Me.dtgDatos.TabIndex = 0
         '
         'dtgLog
         '
         Me.dtgLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgLog.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dtgLog.Location = New System.Drawing.Point(0, 0)
+        Me.dtgLog.Location = New System.Drawing.Point(0, 33)
         Me.dtgLog.Name = "dtgLog"
         Me.dtgLog.RowHeadersWidth = 51
         Me.dtgLog.RowTemplate.Height = 24
-        Me.dtgLog.Size = New System.Drawing.Size(1053, 57)
+        Me.dtgLog.Size = New System.Drawing.Size(1053, 126)
         Me.dtgLog.TabIndex = 0
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.Color.Azure
+        Me.Button2.BackColor = System.Drawing.Color.LightSkyBlue
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(0, 0)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(1053, 28)
+        Me.Button2.Size = New System.Drawing.Size(1053, 31)
         Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Log "
+        Me.Button2.Text = "Log"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'FrmDatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1053, 253)
+        Me.ClientSize = New System.Drawing.Size(1053, 433)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
